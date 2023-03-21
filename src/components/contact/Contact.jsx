@@ -12,21 +12,21 @@ const contact = () => {
       <div className="container contact_container">
       <div className="contact_options">
       <article className='contact_option'>
-        <MdOutlineMail/>
+        <MdOutlineMail className='contact_option-icon'/>
         <h4>Email</h4>
         <h5>ankitsinghasingh007@gmail.com</h5>
         <a href="mailto:ankitsinghasingh007@gmail.com" target = "_blank">Send a Message</a>
 
          </article>
          <article className='contact_option'>
-        <BsMessenger/>
+        <BsMessenger className='contact_option-icon'/>
         <h4>Messenger</h4>
         <h5>Ankit Singh</h5>
         <a href="https://m.me/profile.php?id=100008424760111">Send a Message</a>
 
          </article>
          <article className='contact_option'>
-        <BsWhatsapp/>
+        <BsWhatsapp className='contact_option-icon'/>
         <h4>Whatsapp</h4>
         <h5></h5>
         <a href="https://api.whatsapp.com/send?phone=+917880343895">Send a Message</a>
@@ -35,9 +35,9 @@ const contact = () => {
       </div>
 
       <from action="">
-        <input type="text" name= 'name' placeholder='You Full Name' required />
+        <input type="text" name= 'name' placeholder='Your Full Name' required />
         <input type="email" name='email' placeholder='Your Email' required  />
-        <textarea name="message"rows="7" placeholder='Your Message' required></textarea>
+        <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
         <button type='submit' className='btn btn-primary'>Send Message</button>
       </from>
       </div>
