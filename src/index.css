@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap');
+
 
 
 
@@ -33,7 +35,7 @@ html {
 
   }
   body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif; 
     background: var(--color-bg);
     color: var(--color-white);
     line-height: 1.7;
@@ -58,6 +60,7 @@ html {
 
   section {
     margin-top: 8rem;
+   
   }
 
   section > h2, section > h5 {
