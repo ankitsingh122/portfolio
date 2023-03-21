@@ -22,7 +22,7 @@ const contact = () => {
         <BsMessenger/>
         <h4>Messenger</h4>
         <h5>Ankit Singh</h5>
-        <a href="https://m.me/100015059863427">Send a Message</a>
+        <a href="https://m.me/profile.php?id=100008424760111">Send a Message</a>
 
          </article>
          <article className='contact_option'>
