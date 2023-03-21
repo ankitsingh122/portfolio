@@ -53,3 +53,26 @@
     font-size: 0.9rem;
 }
 
+@media screen and (max-width: 1024px) {
+    .services_container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .service {
+        height: auto;
+    }
+
+    .about_content p {
+        margin: 1rem 0 1.5rem;
+    }
+}
+ 
+ 
+ @media screen and (max-width: 600px) {
+    .services_container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+ }
+
