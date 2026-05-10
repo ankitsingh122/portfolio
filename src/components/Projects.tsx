@@ -20,6 +20,23 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Echo",
+    category: "AI Chat Platform · Real-time Messaging",
+    description: "Team chat platform with servers, channels, and real-time WebSocket messaging — wired with four AI capabilities baked into the message flow: auto-moderation on send, smart reply suggestions, an @AI chatbot member, and one-click channel summarization. Redis pub/sub fans out messages across worker processes; prompt caching keeps latency and cost low.",
+    before: "Team chat is dumb pipes. Moderation is manual, threads sprawl, and catching up on a busy channel means scrolling for ten minutes.",
+    after: "Messages get moderated before they broadcast. Reply suggestions and @AI live inline. One click summarizes a channel. Real-time scales horizontally via Redis pub/sub.",
+    metrics: [
+      { value: "WebSockets", label: "Real-time pub/sub", icon: Zap },
+      { value: "4 AI", label: "Mod · Replies · @AI · Summary", icon: MessageSquare },
+      { value: "Async", label: "FastAPI + SQLAlchemy", icon: Database },
+      { value: "Cached", label: "Ephemeral prompt cache", icon: Shield },
+    ],
+    tech: ["Next.js 15", "TypeScript", "Tailwind", "FastAPI", "PostgreSQL", "Redis", "WebSockets", "SQLAlchemy", "OpenAI"],
+    url: "https://echo-two-azure.vercel.app",
+    github: "https://github.com/ankitsingh122/Echo",
+    impact: "AI-native team chat — moderation, replies, and summaries in the message loop",
+  },
+  {
     name: "Hornet",
     category: "Blockchain Forensics · On-Chain Intelligence",
     description: "Frontend for an on-chain investigation platform built for analysts and compliance teams. Trace fund flows on an interactive transaction graph, layer geo-IP heatmaps over wallet activity, build dashboards from drag-and-drop widgets, and export case reports — built for case work, not block exploring.",

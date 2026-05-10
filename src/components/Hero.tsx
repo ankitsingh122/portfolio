@@ -75,21 +75,25 @@ const Hero = () => {
             </div>
 
             <p className="text-sm lg:text-base text-slate-600 dark:text-white leading-relaxed max-w-lg font-normal max-md:text-sm max-md:leading-relaxed">
-              Frontend-heavy full-stack engineer at Hornet, shipping the analyst surface of an on-chain investigation platform — transaction graphs, geo-IP heatmaps, and case workflows built to stay legible under real load. On the side I build LLM and Web3 products that exercise the same muscles: Quorum (UNI governance) and ACraft (Gemini-powered image generation). Owning features from system design through deploy.
+              Frontend-heavy full-stack engineer at Hornet, shipping the analyst surface of an on-chain investigation platform — transaction graphs, geo-IP heatmaps, and case workflows built to stay legible under real load. On the side I build LLM and Web3 products that exercise the same muscles: Echo (real-time AI chat), Quorum (UNI governance), and ACraft (Gemini-powered image generation). Owning features from system design through deploy.
             </p>
 
-            <div className="flex flex-nowrap gap-6 lg:gap-12 py-4 lg:py-6 border-y border-slate-200/60 dark:border-white/[0.06] max-md:gap-4 max-md:py-3">
-              <div>
+            <div className="flex flex-nowrap gap-6 lg:gap-10 py-4 lg:py-6 border-y border-slate-200/60 dark:border-white/[0.06] max-md:gap-4 max-md:py-3 max-md:overflow-x-auto max-md:-mx-4 max-md:px-4">
+              <div className="shrink-0">
+                <div className="font-heading text-lg lg:text-xl font-semibold text-slate-900 dark:text-white tabular-nums">4 AI</div>
+                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5 whitespace-nowrap">In-flow capabilities <span className="text-slate-400 dark:text-white/60">· Echo</span></div>
+              </div>
+              <div className="shrink-0">
                 <div className="font-heading text-lg lg:text-xl font-semibold text-slate-900 dark:text-white tabular-nums">React Flow</div>
-                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5">Fund-flow graphs <span className="text-slate-400 dark:text-white/60">· Hornet</span></div>
+                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5 whitespace-nowrap">Fund-flow graphs <span className="text-slate-400 dark:text-white/60">· Hornet</span></div>
               </div>
-              <div>
+              <div className="shrink-0">
                 <div className="font-heading text-lg lg:text-xl font-semibold text-slate-900 dark:text-white tabular-nums">10M → 0</div>
-                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5">Vote barrier removed <span className="text-slate-400 dark:text-white/60">· Quorum</span></div>
+                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5 whitespace-nowrap">Vote barrier removed <span className="text-slate-400 dark:text-white/60">· Quorum</span></div>
               </div>
-              <div>
+              <div className="shrink-0">
                 <div className="font-heading text-lg lg:text-xl font-semibold text-slate-900 dark:text-white tabular-nums">30+</div>
-                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5">AI style presets <span className="text-slate-400 dark:text-white/60">· ACraft</span></div>
+                <div className="text-xs lg:text-sm text-slate-500 dark:text-white/90 mt-0.5 whitespace-nowrap">AI style presets <span className="text-slate-400 dark:text-white/60">· ACraft</span></div>
               </div>
             </div>
 
