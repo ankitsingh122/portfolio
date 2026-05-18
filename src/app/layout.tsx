@@ -161,7 +161,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${fontSans.variable} ${fontHeading.variable}`}>
-      <body className={`${fontSans.className} font-sans antialiased bg-white dark:bg-black`}>
+      <body suppressHydrationWarning className={`${fontSans.className} font-sans antialiased bg-white dark:bg-black`}>
         <GoogleAnalytics />
         <script
           type="application/ld+json"

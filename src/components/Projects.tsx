@@ -2,7 +2,30 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Github, Play, X, TrendingUp, Zap, Target, ExternalLink, MessageSquare, Database, Search, Shield, ListOrdered, FileText } from "lucide-react";
+import { Github, Play, X, TrendingUp, Zap, Target, ExternalLink, MessageSquare, Database, Search, Shield, FileText, GitBranch, BarChart3, Network, Cpu, Layers } from "lucide-react";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFastapi,
+  SiPostgresql,
+  SiRedis,
+  SiSqlalchemy,
+  SiOpenai,
+  SiReact,
+  SiVite,
+  SiMui,
+  SiRedux,
+  SiJavascript,
+  SiGooglegemini,
+  SiVercel,
+  SiEthereum,
+  SiSocketdotio,
+  SiThirdweb,
+  SiNextui,
+  SiApacheecharts,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 
 type Project = {
   name: string;
@@ -16,7 +39,42 @@ type Project = {
   github?: string;
   video?: string;
   impact?: string;
+  accent: string;
 };
+
+type TechIcon = IconType | React.ComponentType<{ className?: string }>;
+type TechEntry = { Icon: TechIcon; color: string; mono?: boolean };
+const techMeta: Record<string, TechEntry> = {
+  "Next.js": { Icon: SiNextdotjs, color: "#0A0A0A", mono: true },
+  "Next.js 14": { Icon: SiNextdotjs, color: "#0A0A0A", mono: true },
+  "Next.js 15": { Icon: SiNextdotjs, color: "#0A0A0A", mono: true },
+  TypeScript: { Icon: SiTypescript, color: "#3178C6" },
+  Tailwind: { Icon: SiTailwindcss, color: "#06B6D4" },
+  FastAPI: { Icon: SiFastapi, color: "#009688" },
+  PostgreSQL: { Icon: SiPostgresql, color: "#336791" },
+  Redis: { Icon: SiRedis, color: "#DC382D" },
+  WebSockets: { Icon: SiSocketdotio, color: "#0A0A0A", mono: true },
+  SQLAlchemy: { Icon: SiSqlalchemy, color: "#C0392B" },
+  OpenAI: { Icon: SiOpenai, color: "#10A37F" },
+  "React 18": { Icon: SiReact, color: "#61DAFB" },
+  Vite: { Icon: SiVite, color: "#646CFF" },
+  "React Flow": { Icon: Network, color: "#FF0072" },
+  MUI: { Icon: SiMui, color: "#007FFF" },
+  "Redux Toolkit": { Icon: SiRedux, color: "#764ABC" },
+  Dagre: { Icon: GitBranch, color: "#475569", mono: true },
+  ELK: { Icon: Layers, color: "#475569", mono: true },
+  Recharts: { Icon: BarChart3, color: "#22C55E" },
+  ECharts: { Icon: SiApacheecharts, color: "#AA344D" },
+  jsPDF: { Icon: FileText, color: "#E11D48" },
+  JavaScript: { Icon: SiJavascript, color: "#F7DF1E" },
+  Gemini: { Icon: SiGooglegemini, color: "#4285F4" },
+  Vercel: { Icon: SiVercel, color: "#0A0A0A", mono: true },
+  thirdweb: { Icon: SiThirdweb, color: "#F213A4" },
+  "ethers.js": { Icon: SiEthereum, color: "#627EEA" },
+  NextUI: { Icon: SiNextui, color: "#0A0A0A", mono: true },
+};
+const getTech = (name: string): TechEntry =>
+  techMeta[name] ?? { Icon: Cpu, color: "#64748B", mono: true };
 
 const projects: Project[] = [
   {
@@ -35,6 +93,7 @@ const projects: Project[] = [
     url: "https://echo-two-azure.vercel.app",
     github: "https://github.com/ankitsingh122/Echo",
     impact: "AI-native team chat — moderation, replies, and summaries in the message loop",
+    accent: "#10B981",
   },
   {
     name: "Hornet",
@@ -50,6 +109,7 @@ const projects: Project[] = [
     ],
     tech: ["React 18", "Vite", "React Flow", "MUI", "Redux Toolkit", "Dagre", "ELK", "Recharts", "ECharts", "jsPDF"],
     impact: "Investigation surface for on-chain analysts and compliance teams",
+    accent: "#F59E0B",
   },
   {
     name: "ACraft",
@@ -67,6 +127,7 @@ const projects: Project[] = [
     url: "https://acraft-eta.vercel.app",
     github: "https://github.com/ankitsingh122/image-creation",
     impact: "Designer-grade artwork from one photo, no prompting required",
+    accent: "#8B5CF6",
   },
   {
     name: "Quorum",
@@ -84,6 +145,7 @@ const projects: Project[] = [
     url: "https://smartcontract-opal.vercel.app",
     github: "https://github.com/ankitsingh122/DAO",
     impact: "Opens UNI governance to everyone, not just whales",
+    accent: "#EC4899",
   },
 ];
 
@@ -193,13 +255,32 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group bg-white dark:bg-black rounded-2xl dark:rounded-none border border-slate-200/80 dark:border-white/5 shadow-sm hover:shadow-xl hover:border-slate-300/80 dark:hover:bg-white/[0.02] dark:border-t dark:first:border-t-0 transition-all duration-300 overflow-hidden hover:-translate-y-0.5 max-md:rounded-xl"
+                style={{ ["--accent" as string]: project.accent }}
+                className="group relative bg-white dark:bg-black rounded-2xl dark:rounded-none border border-slate-200/80 dark:border-white/5 shadow-sm hover:shadow-xl hover:border-slate-300/80 dark:hover:bg-white/[0.02] dark:border-t dark:first:border-t-0 transition-all duration-300 overflow-hidden hover:-translate-y-0.5 max-md:rounded-xl"
               >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                  style={{ background: `linear-gradient(180deg, var(--accent), transparent)` }}
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"
+                  style={{ background: "var(--accent)" }}
+                />
                 <div className="p-6 sm:p-8 md:p-10 dark:p-6 sm:dark:p-8 md:dark:p-12 lg:dark:p-16 max-md:p-4 max-md:dark:p-4">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-md:gap-4">
                     <div className="flex-1 min-w-0 space-y-4">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-semibold text-teal-600 dark:text-gray-500 uppercase tracking-wider">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <span
+                          className="font-heading text-sm font-semibold tabular-nums tracking-widest"
+                          style={{ color: "var(--accent)" }}
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                          <span className="text-slate-300 dark:text-white/20">/{String(projects.length).padStart(2, "0")}</span>
+                        </span>
+                        <span className="h-px w-8 bg-slate-300 dark:bg-white/15" aria-hidden />
+                        <span className="text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider">
                           {project.category}
                         </span>
                       </div>
@@ -250,15 +331,41 @@ const Projects = () => {
                           );
                         })}
                       </div>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-600 border border-slate-200/80 dark:bg-transparent dark:text-gray-400 dark:border-white/10"
-                          >
-                            {t}
+                      <div className="pt-2">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-[10px] font-semibold text-slate-400 dark:text-gray-500 uppercase tracking-[0.18em]">
+                            Stack
                           </span>
-                        ))}
+                          <span className="h-px flex-1 bg-slate-200/80 dark:bg-white/10" aria-hidden />
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tech.map((t) => {
+                            const { Icon, color, mono } = getTech(t);
+                            return (
+                              <span
+                                key={t}
+                                title={t}
+                                className="inline-flex items-center gap-1.5 pl-1.5 pr-2.5 py-1 text-xs font-medium rounded-md bg-white text-slate-700 border border-slate-200/80 dark:bg-white/[0.03] dark:text-gray-300 dark:border-white/10 transition-colors hover:border-slate-300 dark:hover:border-white/20"
+                              >
+                                <span
+                                  className="inline-flex h-4 w-4 items-center justify-center rounded-[3px]"
+                                  style={{ background: mono ? undefined : `${color}1A` }}
+                                  aria-hidden
+                                >
+                                  <Icon
+                                    className={
+                                      mono
+                                        ? "h-3 w-3 text-slate-700 dark:text-white"
+                                        : "h-3 w-3"
+                                    }
+                                    style={mono ? undefined : { color }}
+                                  />
+                                </span>
+                                {t}
+                              </span>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="flex items-center gap-4 pt-2 max-md:flex-wrap max-md:gap-3 max-md:pt-3">
                         {project.github && (
