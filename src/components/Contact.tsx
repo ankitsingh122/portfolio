@@ -10,8 +10,8 @@ const Contact = () => {
         <div className="text-center">
           <motion.div
             className="mb-12 max-md:mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
@@ -30,8 +30,8 @@ const Contact = () => {
 
           <motion.div
             className="flex flex-wrap justify-center gap-4 max-md:flex-col max-md:gap-3 max-md:w-full"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 16 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >

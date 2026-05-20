@@ -231,8 +231,8 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             className="mb-14 max-md:mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
@@ -251,8 +251,8 @@ const Projects = () => {
             {projects.map((project, index) => (
               <motion.article
                 key={project.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 24 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 style={{ ["--accent" as string]: project.accent }}
@@ -424,12 +424,7 @@ const Projects = () => {
             ))}
           </div>
 
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
+          <div className="mt-12 text-center">
             <a
               href="https://github.com/ankitsingh122"
               target="_blank"
@@ -438,7 +433,7 @@ const Projects = () => {
             >
               View all projects on GitHub <Github className="w-4 h-4" />
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 

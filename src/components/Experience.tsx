@@ -33,8 +33,8 @@ const Experience = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           className="mb-14 max-md:mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
@@ -50,8 +50,8 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <motion.article
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-black border border-slate-200/80 dark:border-white/5 shadow-sm hover:shadow-md dark:hover:bg-white/[0.02] transition-all duration-300 max-md:p-4 max-md:rounded-xl"
