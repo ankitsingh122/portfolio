@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Doto } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const fontSans = Plus_Jakarta_Sans({
+const fontSans = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
 });
 
-const fontHeading = Syne({
+const fontHeading = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-heading",
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+});
+
+const fontClock = Doto({
+  subsets: ["latin"],
+  weight: ["500", "700", "900"],
+  variable: "--font-clock",
 });
 
 const siteUrl = "https://ankitsingh.dev";
@@ -96,22 +107,7 @@ export const metadata: Metadata = {
   },
 };
 
-const GoogleAnalytics = () => (
-  <>
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-NR203WYBQP"
-    />
-    <Script id="google-analytics">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-NR203WYBQP');
-      `}
-    </Script>
-  </>
-);
+
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -160,21 +156,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${fontSans.variable} ${fontHeading.variable}`}>
-      <body suppressHydrationWarning className={`${fontSans.className} font-sans antialiased bg-white dark:bg-black`}>
-        <GoogleAnalytics />
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fontSans.variable} ${fontHeading.variable} ${fontMono.variable} ${fontClock.variable}`}
+    >
+      <body suppressHydrationWarning className={`${fontSans.className} font-sans antialiased bg-background text-foreground`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem={true}
           disableTransitionOnChange
         >
           <SmoothScroll>
-            <main className="w-full min-h-screen bg-white dark:bg-black">
+            <main className="relative w-full min-h-screen">
               {children}
             </main>
           </SmoothScroll>

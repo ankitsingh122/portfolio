@@ -1,54 +1,88 @@
 "use client";
 
-import { motion } from "motion/react";
+import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import {
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVite,
+  SiRedux,
+  SiNodedotjs,
+  SiPython,
+  SiFastapi,
+  SiSocketdotio,
+  SiOpenai,
+  SiGooglegemini,
+  SiPostgresql,
+  SiRedis,
+  SiAmazonwebservices,
+  SiDocker,
+  SiVercel,
+  SiEthereum,
+} from "react-icons/si";
 
-const skillCategories = [
-  { title: "Frontend (Product UI)", skills: ["TypeScript", "React", "Next.js (App Router)", "Tailwind CSS"] },
-  { title: "Backend & APIs", skills: ["Node.js", "Python", "FastAPI", "Express.js", "REST APIs", "WebSockets"] },
-  { title: "AI Systems (Production)", skills: ["OpenAI / GPT-4", "LangChain", "RAG pipelines", "pgvector", "embedding search", "LLM orchestration"] },
-  { title: "Data & Infrastructure", skills: ["PostgreSQL", "Redis", "Object Storage (S3)", "queues / async processing"] },
-  { title: "Cloud & Deployment", skills: ["AWS (EC2, S3, RDS)", "Docker", "Vercel", "CI/CD (GitHub Actions)"] },
-  { title: "Architecture & Practices", skills: ["Multi-tenant SaaS", "distributed systems", "event-driven design", "system design", "performance optimization"] },
+/* Shared section heading — large Space Grotesk title with optional action. */
+export const SectionHeading = ({
+  title,
+  action,
+}: {
+  title: string;
+  action?: ReactNode;
+}) => (
+  <div className="mb-6 flex items-end justify-between">
+    <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-[34px]">
+      {title}
+    </h2>
+    {action}
+  </div>
+);
+
+type Tech = { name: string; Icon: IconType };
+
+const stack: Tech[] = [
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "React", Icon: SiReact },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "Tailwind", Icon: SiTailwindcss },
+  { name: "Vite", Icon: SiVite },
+  { name: "Redux", Icon: SiRedux },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "Python", Icon: SiPython },
+  { name: "FastAPI", Icon: SiFastapi },
+  { name: "WebSockets", Icon: SiSocketdotio },
+  { name: "OpenAI", Icon: SiOpenai },
+  { name: "Gemini", Icon: SiGooglegemini },
+  { name: "PostgreSQL", Icon: SiPostgresql },
+  { name: "Redis", Icon: SiRedis },
+  { name: "ethers.js", Icon: SiEthereum },
+  { name: "AWS", Icon: SiAmazonwebservices },
+  { name: "Docker", Icon: SiDocker },
+  { name: "Vercel", Icon: SiVercel },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 bg-transparent max-md:py-12 max-md:px-4">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="mb-14 max-md:mb-8"
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-sm font-semibold text-teal-600 dark:text-gray-500 uppercase tracking-wider">
-            Tech Stack
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mt-2 mb-4 max-md:text-2xl max-md:mb-3">
-            Tech Stack (Production)
-          </h2>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-md:gap-4">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ y: 16 }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="p-6 rounded-2xl bg-white dark:bg-transparent border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-md hover:border-slate-300/80 dark:hover:bg-white/[0.02] transition-all duration-300 hover:-translate-y-0.5 max-md:p-4 max-md:rounded-xl"
-            >
-              <h3 className="font-heading text-lg font-bold text-slate-900 dark:text-white mb-3 max-md:text-base max-md:mb-2">
-                {category.title}
-              </h3>
-              <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed max-md:text-xs">
-                {category.skills.join(", ")}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+    <section id="stack" className="scroll-mt-20 pb-12 pt-8">
+      <div className="mb-4 flex items-center gap-3">
+        <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Tech Stack
+        </span>
+        <span className="h-px flex-1 bg-border" aria-hidden />
+      </div>
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+        {stack.map((t) => (
+          <div
+            key={t.name}
+            className="group flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2.5 transition-colors hover:bg-accent"
+          >
+            <t.Icon className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+            <span className="truncate text-[13px] font-medium text-foreground">
+              {t.name}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );
